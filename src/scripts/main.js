@@ -7,7 +7,11 @@ const tableRows = table.rows;
 for (let i = 0; i < tableRows.length; i++) {
   const cellCopy = tableRows[i].cells[1];
   const cellAfter = tableRows[i].cells[4];
-  const newCell = document.createElement('td');
+  let newCell = document.createElement('td');
+
+  if (i === 0 || i === tableRows.length - 1) {
+    newCell = document.createElement('th');
+  }
 
   newCell.innerText = cellCopy.innerText;
 
